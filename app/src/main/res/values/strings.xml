@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">PSP_Practica3_Jaime</string>
+    <string name="action_settings">Settings</string>
+    <string name="str_actividad">Actividad</string>
+    <string name="str_tipo">- Tipo</string>
+    <string name="str_descripcion_item">Descripcion de la actividad a realizar</string>
+    <string name="str_tramo_item">Inicio - Fin</string>
+    <string name="str_complementaria">Complemetaria</string>
+    <string name="str_extraescolar">Extraescolar</string>
+    <string name="str_profesor">- Profesor</string>
+    <string name="str_lugar">- Lugar</string>
+    <string name="str_descripcion">- Descripcion</string>
+    <string name="str_tramo">- Duracion</string>
+    <string name="str_aceptar">Aceptar</string>
+    <string name="str_cancelar">Cancelar</string>
+    <string name="add">Añadir</string>
+    <string name="str_fechai">fechai (aaaa-mm-dd hh:mm)</string>
+    <string name="str_fechaf">fechaf (aaaa-mm-dd hh:mm)</string>
+    <string name="str_lugari">lugari</string>
+    <string name="str_lugarf">lugarf</string>
+</resources>
