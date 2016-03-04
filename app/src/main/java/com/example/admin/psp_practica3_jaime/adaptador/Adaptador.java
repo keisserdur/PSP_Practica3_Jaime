@@ -52,7 +52,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
         final Actividad ac=datos.get(position);
         holder.bindRegister(ac);
 
@@ -62,7 +62,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(c,Editar.class);
+                Intent i = new Intent(c, Editar.class);
                 i.putExtra("actividad", ac);
                 lanzar(i);
             }
@@ -84,11 +84,16 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
                                         .build();
                                 ApiActividades api = retrofit.create(ApiActividades.class);
 
-                                Call<String> call=api.deleteActividad(Integer.parseInt(ac.getId()));
+                                final Call<String> call = api.deleteActividad(Integer.parseInt(ac.getId()));
 
                                 call.enqueue(new Callback<String>() {
                                     @Override
                                     public void onResponse(Response<String> response, Retrofit retrofit) {
+                                        datos.remove(position);
+                                        notifyItemChanged(position);
+                                        notifyItemRemoved(position);
+                                        notifyDataSetChanged();
+
                                     }
 
                                     @Override
@@ -97,7 +102,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
                                     }
 
                                 });
-                                notifyDataSetChanged();
+
                                 /****/
                             }
                         })
@@ -123,6 +128,8 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolder> {
     public void lanzar(Intent i){
         c.startActivity(i);
     }
+
+
 
 
     /************************************************/
